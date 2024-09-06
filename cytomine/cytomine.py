@@ -167,7 +167,7 @@ class Cytomine(object):
         if not verbose:
             verbose = logging.INFO
         self._verbose = verbose
-        self._logger.setLevel(verbose)
+        self._logger.setLevel(logging.INFO)
 
         logging_handlers = logging_handlers if logging_handlers is not None else [StdoutHandler()]
         for handler in logging_handlers:
