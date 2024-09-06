@@ -649,6 +649,16 @@ class Cytomine(object):
             self._logger.info(f"Public key: {self._public_key}")
             self._logger.info(f"Private key: {self._private_key}")
             self._logger.info(f"Filename: {filename}")
+            self._logger.info(f"Response: {response.status_code}")
+            # Check if the response contains JSON data with an error message
+            try:
+                error_message = response.json().get('error', 'No error message provided')
+            except ValueError:
+                # If there is no JSON data, fallback to the raw text of the response
+                error_message = response.text or 'No error message provided'
+
+            # Log the error message
+            self._logger.info(f"Error during image upload: {error_message}")
             self._logger.error("Error during image upload.")
             return False
         
