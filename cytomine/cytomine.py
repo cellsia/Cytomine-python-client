@@ -648,6 +648,7 @@ class Cytomine(object):
             self._logger.info(f"Upload host: {upload_host}")
             self._logger.info(f"Public key: {self._public_key}")
             self._logger.info(f"Private key: {self._private_key}")
+            self._logger.info(f"Filename: {filename}")
             self._logger.error("Error during image upload.")
             return False
         
